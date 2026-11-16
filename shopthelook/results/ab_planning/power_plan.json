@@ -1,0 +1,19 @@
+{
+  "assumptions": {
+    "baseline": 0.08,
+    "mde": 0.03,
+    "alpha": 0.05,
+    "power": 0.8,
+    "daily_users": 100000,
+    "min_days": 14,
+    "adoption": 0.12
+  },
+  "n_per_arm": 203322,
+  "n_per_arm_statsmodels_check": 203315,
+  "total_users": 406644,
+  "days_to_reach_sample": 5,
+  "planned_duration_days": 14,
+  "absolute_mde_pp": 0.24,
+  "implied_adopter_lift_needed": 0.25,
+  "mde_achieved_at_planned_duration": 0.016117892566993475
+}

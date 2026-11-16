@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Datasets and derived data (re-created by src/data/*.py). splits/ IS committed.
+data/
+artifacts/
+runs/
+
+# Large model weights: keep only the final detector in models/ (tracked via release or LFS)
+*.pt
+!models/.gitkeep
+app/examples/

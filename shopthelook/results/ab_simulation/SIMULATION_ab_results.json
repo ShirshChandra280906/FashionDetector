@@ -1,0 +1,92 @@
+{
+  "LABEL": "SIMULATION - synthetic data, not a real experiment",
+  "assumptions": {
+    "days": 14,
+    "new_users_per_day": 100000,
+    "baseline_atc": 0.08,
+    "propensity_concentration": 10.0,
+    "search_share": 0.6,
+    "adoption_among_triggered": 0.2,
+    "adopter_relative_lift": 0.25,
+    "order_given_atc": 0.45,
+    "return_rate_control": 0.22,
+    "return_rate_lift_adopters_pp": 0.005,
+    "latency_median_ms": 650,
+    "latency_sigma": 0.38,
+    "bounce_text": 0.3,
+    "bounce_look": 0.31,
+    "adoption_overall": 0.12
+  },
+  "srm": {
+    "counts": {
+      "A": 699493,
+      "B": 700507
+    },
+    "p": 0.3914523929150916
+  },
+  "primary": {
+    "n_A": 699493,
+    "n_B": 700507,
+    "rate_A": 0.0799650604080384,
+    "rate_B": 0.08233607943960589,
+    "diff_pp": 0.23710190315674867,
+    "ci95_pp": [
+      0.1466362053014384,
+      0.32756760101205895
+    ],
+    "rel_lift": 0.029650687681205712,
+    "rel_ci95": [
+      0.018170700424993767,
+      0.041130674937417656
+    ],
+    "z": 5.136873740093646,
+    "p_value": 2.793464975858256e-07
+  },
+  "triggered": {
+    "n_A": 420125,
+    "n_B": 420417,
+    "rate_A": 0.08015233561440048,
+    "rate_B": 0.08418308488952635,
+    "diff_pp": 0.40307492751258667,
+    "ci95_pp": [
+      0.28565947338121833,
+      0.520490381643955
+    ],
+    "rel_lift": 0.0502886066167445,
+    "rel_ci95": [
+      0.03527481105810154,
+      0.06530240217538746
+    ],
+    "z": 6.728240843980643,
+    "p_value": 1.7172651513107487e-11
+  },
+  "cuped": {
+    "theta": 0.06819925270849175,
+    "diff_pp": 0.23868317947283307,
+    "ci95_pp": [
+      0.1490690043525999,
+      0.32829735459306625
+    ],
+    "p_value": 1.7856730311335853e-07,
+    "variance_reduction": 0.018736719192857354
+  },
+  "guardrails": {
+    "return_rate_diff_pp": 0.04275145258309798,
+    "return_rate_upper95_pp": 0.6483917544396983,
+    "return_threshold_pp": 1.0,
+    "p95_latency_ms": 1213.1013461457833,
+    "latency_threshold_ms": 1500,
+    "bounce_diff_pp": 0.7933949564987275,
+    "bounce_threshold_pp": 2.0,
+    "return_ok": true,
+    "latency_ok": true,
+    "bounce_ok": true
+  },
+  "monte_carlo_power_check": {
+    "power_at_3pct_lift": 0.78,
+    "false_positive_rate_at_0_lift": 0.05,
+    "n_per_arm": 203322,
+    "simulations": 2000
+  },
+  "decision": "SHIP"
+}

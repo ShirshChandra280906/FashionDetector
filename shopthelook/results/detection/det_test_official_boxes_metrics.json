@@ -1,0 +1,7 @@
+{
+  "note": "box metrics vs OFFICIAL DF2 bounding boxes (det_test, 6,005 images)",
+  "mAP50": 0.8424316649219763,
+  "mAP50_95": 0.6361746608837983,
+  "precision": 0.8155799100064175,
+  "recall": 0.7725003333330297
+}

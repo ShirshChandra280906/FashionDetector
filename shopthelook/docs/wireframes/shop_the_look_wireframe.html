@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop the Look Wireframe</title>
+<style>
+  :root {
+    --bg: #f4f3f0; --phone: #ffffff; --ink: #1d1d1b; --ink-2: #5f5e59; --line: #d9d8d3;
+    --fill: #ecebe7; --fill-2: #e0dfda; --accent: #2a78d6; --note: #fff7d6; --note-line: #e6cf73;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif; padding: 32px 16px 48px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: var(--ink-2); margin: 0 0 28px; max-width: 760px; }
+  .screens { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+  .screen { display: flex; gap: 18px; flex-wrap: wrap; }
+  .label { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); margin-bottom: 8px; }
+  .phone { width: 340px; max-width: 100%; background: var(--phone); border: 2px solid var(--ink); border-radius: 32px; padding: 14px 14px 18px; position: relative; }
+  .status { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-2); padding: 0 8px 10px; }
+  .bar { display: flex; align-items: center; gap: 8px; border: 1.5px solid var(--line); border-radius: 10px; padding: 9px 10px; color: var(--ink-2); }
+  .bar .grow { flex: 1; }
+  .icon { width: 22px; height: 22px; border: 1.5px solid var(--ink); border-radius: 6px; display: inline-grid; place-items: center; font-size: 12px; }
+  .cam { border-color: var(--accent); color: var(--accent); }
+  .tag { position: absolute; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; }
+  .sheet { margin-top: 14px; border: 1.5px solid var(--line); border-radius: 18px; padding: 16px; }
+  .sheet h3 { margin: 0 0 4px; font-size: 16px; }
+  .muted { color: var(--ink-2); font-size: 12.5px; }
+  .drop { margin: 14px 0; height: 190px; border: 2px dashed var(--line); border-radius: 14px; display: grid; place-items: center; text-align: center; color: var(--ink-2); background: repeating-linear-gradient(45deg, transparent 0 10px, var(--fill) 10px 11px); }
+  .btn { display: block; width: 100%; text-align: center; padding: 11px; border-radius: 10px; font-weight: 600; margin-top: 8px; border: 1.5px solid var(--ink); }
+  .btn.primary { background: var(--ink); color: #fff; }
+  .tips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+  .tip { background: var(--fill); border-radius: 10px; padding: 8px; font-size: 11px; text-align: center; color: var(--ink-2); }
+  .tip .ph { height: 46px; background: var(--fill-2); border-radius: 6px; margin-bottom: 6px; }
+  .recent { display: flex; gap: 8px; margin-top: 10px; }
+  .recent div { flex: 1; height: 54px; background: var(--fill); border-radius: 8px; }
+  /* results */
+  .photo { position: relative; height: 230px; border-radius: 14px; background: var(--fill); overflow: hidden; margin-top: 12px; }
+  .person { position: absolute; left: 50%; top: 18px; transform: translateX(-50%); width: 70px; height: 200px; }
+  .person .head { width: 30px; height: 30px; border-radius: 50%; background: var(--fill-2); margin: 0 auto 4px; }
+  .person .torso { width: 70px; height: 70px; background: var(--fill-2); border-radius: 10px 10px 4px 4px; }
+  .person .legs { width: 54px; height: 90px; margin: 4px auto 0; background: var(--fill-2); border-radius: 4px; }
+  .box { position: absolute; border: 2px solid var(--accent); border-radius: 4px; }
+  .box span { position: absolute; top: -10px; left: -10px; }
+  .chips { display: flex; gap: 6px; margin: 12px 0 4px; overflow: hidden; }
+  .chip { border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 10px; font-size: 12px; white-space: nowrap; }
+  .chip.on { border-color: var(--ink); background: var(--ink); color: #fff; }
+  .item { margin-top: 14px; }
+  .item-head { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+  .item-head .n { position: static; }
+  .item-head .muted { font-weight: 400; margin-left: auto; text-decoration: underline; }
+  .row { display: flex; gap: 8px; margin-top: 8px; overflow: hidden; }
+  .card { flex: 0 0 92px; border: 1.5px solid var(--line); border-radius: 10px; padding: 6px; }
+  .card .img { height: 92px; background: var(--fill); border-radius: 6px; position: relative; }
+  .card .score { position: absolute; bottom: 4px; left: 4px; background: #fff; border-radius: 6px; font-size: 10px; padding: 1px 5px; font-weight: 700; }
+  .card .l1 { height: 7px; background: var(--fill-2); border-radius: 3px; margin-top: 6px; }
+  .card .l2 { height: 7px; width: 60%; background: var(--fill-2); border-radius: 3px; margin-top: 4px; }
+  .card .price { font-size: 11px; font-weight: 700; margin-top: 5px; }
+  .card .heart { float: right; font-weight: 400; color: var(--ink-2); }
+  .notes { width: 260px; max-width: 100%; display: flex; flex-direction: column; gap: 10px; padding-top: 26px; }
+  .note { background: var(--note); border: 1px solid var(--note-line); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; }
+  .note b.k { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11px; margin-right: 6px; }
+  footer { margin-top: 36px; color: var(--ink-2); font-size: 12.5px; max-width: 760px; }
+</style>
+</head>
+<body>
+  <h1>Shop the Look: wireframes</h1>
+  <p class="sub">Mid-fidelity, mobile app. Screen 1 is the entry point and upload. Screen 2 shows the detected garments with per-item
+  recommendations. The numbered notes explain the product decision behind each element. Grey blocks are placeholders, not real imagery.</p>
+
+  <div class="screens">
+    <!-- SCREEN 1 -->
+    <div class="screen">
+      <div>
+        <div class="label">Screen 1 · Upload</div>
+        <div class="phone">
+          <div class="status"><span>9:41</span><span>●●● 4G ▮</span></div>
+          <div class="bar" style="position:relative">
+            <span class="icon">⌕</span><span class="grow">Search for brands, products…</span>
+            <span class="icon cam">◉</span>
+            <span class="tag" style="right:-8px;top:-10px">1</span>
+          </div>
+          <div class="sheet" style="position:relative">
+            <span class="tag" style="left:-8px;top:-10px">2</span>
+            <h3>Shop the Look</h3>
+            <div class="muted">Saw an outfit you love? Upload it and we'll find similar pieces.</div>
+            <div class="drop"><div><div class="icon" style="margin-bottom:8px">⤒</div><br>Drop a photo or screenshot<br><span class="muted">JPG / PNG / HEIC · up to 10 MB</span></div></div>
+            <span class="btn primary">Take a photo</span>
+            <span class="btn">Choose from gallery</span>
+            <div class="tips" style="position:relative">
+              <span class="tag" style="left:-8px;top:-10px">3</span>
+              <div class="tip"><div class="ph"></div>Full outfit visible</div>
+              <div class="tip"><div class="ph"></div>Good light</div>
+              <div class="tip"><div class="ph"></div>One person</div>
+            </div>
+            <div class="muted" style="margin-top:14px">Recent looks</div>
+            <div class="recent" style="position:relative"><div></div><div></div><div></div><div></div>
+              <span class="tag" style="right:-8px;top:-10px">4</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="note"><b class="k">1</b>Camera icon <b>inside the search bar</b>. Shoppers already go there when they want something specific. This is the treatment entry point in the A/B test. Control has no icon.</div>
+        <div class="note"><b class="k">2</b>Accept <b>screenshots</b> as well as camera photos. Instagram and celebrity screenshots are the main use case in the persona.</div>
+        <div class="note"><b class="k">3</b>Photo tips <b>before</b> upload. Detection fails most on cropped, dark and group photos, and it's cheaper to prevent a bad photo than to recover from one.</div>
+        <div class="note"><b class="k">4</b>Recent looks bring users back to a past search (repeat usage is a supporting metric). Stored on device only, by default.</div>
+      </div>
+    </div>
+
+    <!-- SCREEN 2 -->
+    <div class="screen">
+      <div>
+        <div class="label">Screen 2 · Results</div>
+        <div class="phone">
+          <div class="status"><span>9:41</span><span>●●● 4G ▮</span></div>
+          <div class="bar"><span class="icon">←</span><span class="grow">Shop the Look</span><span class="icon">↻</span></div>
+          <div class="photo">
+            <div class="person"><div class="head"></div><div class="torso"></div><div class="legs"></div></div>
+            <div class="box" style="left:128px;top:50px;width:84px;height:80px"><span class="tag">1</span></div>
+            <div class="box" style="left:138px;top:128px;width:64px;height:96px"><span class="tag">2</span></div>
+            <span class="tag" style="right:8px;top:8px;background:var(--ink)">5</span>
+          </div>
+          <div class="chips" style="position:relative">
+            <span class="chip on">All (2)</span><span class="chip">1 · Top</span><span class="chip">2 · Trousers</span><span class="chip">Price ▾</span>
+          </div>
+          <div class="item">
+            <div class="item-head"><span class="tag n">1</span>Short-sleeve top <span class="muted">Not a top?</span></div>
+            <div class="row" style="position:relative">
+              <div class="card"><div class="img"><span class="score">0.91</span></div><div class="l1"></div><div class="l2"></div><div class="price">₹799 <span class="heart">♡</span></div></div>
+              <div class="card"><div class="img"><span class="score">0.89</span></div><div class="l1"></div><div class="l2"></div><div class="price">₹649 <span class="heart">♡</span></div></div>
+              <div class="card"><div class="img"><span class="score">0.88</span></div><div class="l1"></div><div class="l2"></div><div class="price">₹1,099 <span class="heart">♡</span></div></div>
+              <span class="tag" style="right:2px;top:-10px">6</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-head"><span class="tag n">2</span>Trousers <span class="muted">Not trousers?</span></div>
+            <div class="row">
+              <div class="card"><div class="img"><span class="score">0.87</span></div><div class="l1"></div><div class="l2"></div><div class="price">₹1,299 <span class="heart">♡</span></div></div>
+              <div class="card"><div class="img"><span class="score">0.86</span></div><div class="l1"></div><div class="l2"></div><div class="price">₹999 <span class="heart">♡</span></div></div>
+              <div class="card"><div class="img"><span class="score">0.84</span></div><div class="l1"></div><div class="l2"></div><div class="price">₹1,499 <span class="heart">♡</span></div></div>
+            </div>
+          </div>
+          <span class="btn primary" style="margin-top:14px;position:relative">Add both to cart · ₹2,098<span class="tag" style="right:-8px;top:-10px">7</span></span>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="note"><b class="k">5</b>Numbered boxes on the photo match numbered rows below, so the shopper can see what we understood. Tapping a box scrolls to its row. Users can drag a box to fix a missed or wrong garment.</div>
+        <div class="note"><b class="k">6</b>Top-5 per garment, <b>filtered to the detected category</b>. Without the filter, many results come from the wrong category (measured offline, see README). The score is shown as a relative "match" signal, never as a promise.</div>
+        <div class="note"><b class="k">"Not a top?"</b> A one-tap correction feeds the wrong-garment flag rate (a supporting metric) and future training data.</div>
+        <div class="note"><b class="k">7</b>"Add both to cart" bundles the look. That's the North Star action (ATC from look recommendations). Attribution is tagged <code>source=shop_the_look</code>.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Not shown: an empty state ("We couldn't find clothing in this photo. Try a full-outfit shot"), a loading skeleton
+  (target p95 &lt; 1.5 s), and a category-with-no-stock state ("No skirts like this yet. See similar dresses").
+  Prices are placeholders.</footer>
+</body>
+</html>

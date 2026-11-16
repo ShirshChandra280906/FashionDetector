@@ -1,0 +1,26 @@
+{
+  "weights": "models/deepfashion2_yolov8s-seg.pt",
+  "split": "test",
+  "images": 6005,
+  "task": "segment",
+  "instances": 9744,
+  "imgsz": 640,
+  "mAP50": 0.8432621276292731,
+  "mAP50_95": 0.7437462664877849,
+  "precision": 0.7988839190581759,
+  "recall": 0.7925538954085558,
+  "mask_mAP50": 0.8197770908124062,
+  "mask_mAP50_95": 0.644000160078334,
+  "speed_ms_per_image": {
+    "preprocess": 0.15483528288774545,
+    "inference": 1.0859464240151084,
+    "loss": 4.020157416694667e-05,
+    "postprocess": 19.229646496549186
+  },
+  "env": {
+    "device": "mps",
+    "torch": "2.15.0",
+    "ultralytics": "8.4.215",
+    "python": "3.12.14"
+  }
+}
